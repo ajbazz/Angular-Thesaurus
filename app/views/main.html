@@ -1,0 +1,20 @@
+<div class="text-center input-spacing">
+  <form name="userForm">
+    <input class="wordField form-control" type="text" ng-model="main.word" ng-model-options="{ debounce: 500 }" ng-change="main.getData($event)" placeholder="" autofocus/>
+  </form>
+</div>
+<div class="jumbotron">
+    <div class="text-center"><img ng-if="main.loading" src="images/loading.gif" /></div>
+    <h3>{{main.displayWord|camelCase}}</h3>
+    <div class="container" ng-if="main.displayWord">
+      <word-results result-data="main.wordDefs"></word-results>
+
+      <h5>Synonyms</h5>
+      <div class="text-center"><img ng-if="!main.synonyms" src="images/loading.gif" /></div>
+      <flex-results col-data="main.synonyms"></flex-results>
+    </div>
+
+    <div ng-if="!main.displayWord || !main.errorMsg" class="text-center">
+      <strong>{{main.errorMsg}}</strong>
+    </div>
+</div>

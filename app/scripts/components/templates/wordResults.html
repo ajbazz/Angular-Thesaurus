@@ -1,0 +1,7 @@
+
+<div class="lead" ng-repeat="entry in $ctrl.resultData">
+    <strong>{{entry.key}}</strong> :
+    <span ng-repeat="def in entry.value">
+        {{def.definition}}{{!$last ? ',':''}}
+    </span>
+</div>
